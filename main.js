@@ -1,3 +1,4 @@
+//the begining list
 let theItems = [
     {text: "get the Esspresso machine fixed", isDone: false},
     {text: "get that mdphk Scottish-kilt cat", isDone: false},
@@ -6,7 +7,7 @@ let theItems = [
     {text: "Do someshit things", isDone: false}
 ];
 
-
+//add to the list
 let addtotheItems = () => {
     let inputText = document.getElementById("input").value;
     theItems.push({text: inputText, isDone: false});
@@ -14,14 +15,13 @@ let addtotheItems = () => {
     render()
 }
 
-
-
+//remove the item function
 let remove = (i) => {
     theItems.splice(i,1)
 render()
 }
 
-
+// toggled done/undone
 let done = (i) => {
     theItems[i].isDone = !theItems[i].isDone 
     // if (theItems[i].isDone == true) {theItems[i].text = `<s>${theItems[i].text}</s>`
@@ -29,12 +29,11 @@ let done = (i) => {
 render() ;
 }
 
-
-
+//
 let addBtn =  document.getElementById("addbtn");
 addBtn.addEventListener(`click`, addtotheItems);
 
-
+//the render part
 let render = () => {
     let todolist = document.getElementById(`todos`)
 
@@ -44,12 +43,11 @@ let render = () => {
         } else {
             return `<li> <button href='#' onclick=done(${i})> Mark undone </button> <s>${x.text}</s> <button href='#' onclick=remove(${i})> Delete </button> </li>\n`
         }
-    
     });
     todolist.innerHTML = todoHTML.join('');
 }
 
-let filtercheck = document.getElementById(`check`).checked
+// let filtercheck = document.getElementById(`check`).checked
 
 
 
